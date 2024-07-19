@@ -1,5 +1,5 @@
 import Hello from "./components/Hello";
-import TarotCard from "./components/TarotCard";
+import TarotCardContainer from "./components/TarotCardContainer";
 
 
 
@@ -10,7 +10,7 @@ export default function Home() {
     <>
     <Hello/>
 
-   <TarotCard/>
+   <TarotCardContainer/>
     </>
 
     

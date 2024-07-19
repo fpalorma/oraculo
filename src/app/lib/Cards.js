@@ -1,4 +1,4 @@
-const CARDS = [
+export const CARDS = [
     {
         id: "00",
         name: "El Loco",
@@ -135,4 +135,10 @@ const CARDS = [
 
 
 
-export default CARDS
+export const getCard = (number)=>{
+    return new Promise((res)=>{
+        setTimeout(()=>{
+            res(CARDS[number])
+        },500)
+    })
+}
