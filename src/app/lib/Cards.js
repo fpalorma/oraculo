@@ -135,6 +135,15 @@ export const CARDS = [
 
 
 
-export const getCard = (number)=>{
-    return CARDS[number]
+export const getCards = ()=>{
+    const cardArray = []
+    
+    
+    while(cardArray.length<3){
+        const num = Math.floor(Math.random()*21);
+        if(!cardArray.find(card=>card.id === CARDS[num].id)){
+            cardArray.push(CARDS[num]) 
+        }
+    }
+    return cardArray
 }
