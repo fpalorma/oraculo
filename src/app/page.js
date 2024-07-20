@@ -6,13 +6,9 @@ import TarotCardContainer from "./components/TarotCardContainer";
 export default function Home() {
   
   return (
-
     <>
-    <Hello/>
-
-   <TarotCardContainer/>
+      <Hello/>
+      <TarotCardContainer/>
     </>
-
-    
   );
 }

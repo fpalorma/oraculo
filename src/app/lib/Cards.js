@@ -136,9 +136,5 @@ export const CARDS = [
 
 
 export const getCard = (number)=>{
-    return new Promise((res)=>{
-        setTimeout(()=>{
-            res(CARDS[number])
-        },500)
-    })
+    return CARDS[number]
 }
