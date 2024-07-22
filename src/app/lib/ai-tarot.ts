@@ -19,7 +19,7 @@ export async function getPrediction(userMessage: string, tarotCards: string[]) {
 
   const prompt = `Vas a pretender ser una tarotista. Vas a recibir el siguiente mensaje de usuario: "${userMessage}"
   
-  Siempre que el mensaje de usuario sea una pregunta válida, vas a dar una respuesta de manera amistosa, sin predeterminar el sexo con al menos 100 palarbas y no más de 200 palabras, en español y teniendo en cuenta que has seleccionado las cartas: ${tarotCards.join(", ")}.
+  Siempre que el mensaje de usuario sea una pregunta válida, vas a dar una respuesta de manera amistosa, sin predeterminar el sexo con al menos 100 palarbas y no más de 300 palabras, en español y teniendo en cuenta que has seleccionado las cartas: ${tarotCards.join(", ")}.
   
   Si el mensaje del usuario no es una pregunta válida como por ejemplo saludos, mensajes sin sentido o en otros idiomas, deberás indicar que se vuelva a realizar la pregunta de manera amable. 
   
@@ -27,7 +27,7 @@ export async function getPrediction(userMessage: string, tarotCards: string[]) {
 
   { "message": "tu respuesta", "isOk": true }
 
-  Si el mensaje del usuario no es una pregunta válida como por ejemplo saludos, mensajes sin sentido o en otros idiomas, deberás indicar que se vuelva a realizar la pregunta de manera amable e isOk es false.
+  Es muy importante que tengas en cuenta que si el mensaje del usuario no es una pregunta válida como por ejemplo saludos, consultas sobre el clima, palabras sueltas en una oracion que no están formuladas como una pregunta directa(como "perro", "casa", "trabajo", "animal" o similares) y sin sentido, mensajes que incluyan una sola letra o un número solo, o mensajes sin sentido o en otros idiomas, deberás indicar que se vuelva a realizar la pregunta de manera amable e isOk es false.
   `
 
   const { text } = await generateText({
