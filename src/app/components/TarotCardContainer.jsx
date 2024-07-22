@@ -24,13 +24,13 @@ const TarotCardContainer = () => {
   
     return(
         <>
-<div className="flex flex-col  items-center mb-4">
-          <form action={handleOnSubmit}>
+<div >
+          <form className="flex flex-col gap-y-1 md:flex-row md:justify-center md:gap-x-2 items-center mb-4" action={handleOnSubmit}>
             <Input name='userMessage' />
             <Button texto={"Consultar al oráculo"}/>
           </form>
         </div>
-        <div className="flex flex-auto justify-center gap-x-12">
+        <div className="flex  justify-center gap-x-4 mx-2 md:gap-x-12">
         {
          cards.map(card=>(
           <TarotCard key={card.id} card={card}/>
@@ -39,7 +39,7 @@ const TarotCardContainer = () => {
 
         </div>
 {        
-prediction?<p className="text-fuchsia-500  text-pretty text-center mx-60 mt-4 text-3sm pb-10">{prediction}</p>:<p className="text-white text-center">Haz click en el botón para conocer tu suerte</p>
+prediction?<p className="text-fuchsia-500  text-pretty text-center mx-4 mt-2 pb-2 md:mx-60 md:mt-4 md:text-3sm md:pb-10">{prediction}</p>:<p className="text-white text-center">Haz click en el botón para conocer tu suerte</p>
 }        
        
     </>
