@@ -17,7 +17,6 @@ const TarotCardContainer = () => {
       const tarotCards = getCards();
       const cardsNames = tarotCards.map((card)=>card.name)
       const response = await getPrediction(message, cardsNames)
-      console.log(response.message);
       setPrediction(response.message)
       setCards(response.isOk?tarotCards:[])
     }
