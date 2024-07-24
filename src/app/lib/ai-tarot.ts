@@ -15,6 +15,7 @@ if (!process.env.AI_API_KEY) {
 }
 
 export async function getPrediction(userMessage: string, tarotCards: string[]) {
+
   try{
     const prompt = `Vas a pretender ser una tarotista. Vas a recibir el siguiente mensaje de usuario: "${userMessage}"
     
@@ -26,8 +27,10 @@ export async function getPrediction(userMessage: string, tarotCards: string[]) {
   
     { "message": "tu respuesta", "isOk": true }
   
+
     Es muy importante que tengas en cuenta que si el mensaje del usuario no es una pregunta válida como por ejemplo saludos, consultas sobre el clima, palabras sueltas en una oracion que no están formuladas como una pregunta directa(como "perro", "casa", "trabajo", "animal" o similares) y sin sentido, mensajes que incluyan una sola letra o un número solo, o mensajes sin sentido o en otros idiomas, deberás indicar que se vuelva a realizar la pregunta de manera amable e isOk es false.
     `
+
   
     const { text } = await generateText({
       model: google('models/gemini-pro', { safetySettings: [
