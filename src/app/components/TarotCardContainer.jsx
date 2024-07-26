@@ -54,7 +54,7 @@ const TarotCardContainer = () => {
     }
 
       {prediction&&!isLoading && (
-        <p className="text-fuchsia-500  text-pretty text-center mx-4 mt-2 pb-2 md:mx-60 md:mt-4 md:text-3sm md:pb-10">
+        <p className="text-fuchsia-500  text-pretty text-center mx-4 mt-2 pb-2 md:mx-60 md:mt-4 md:text-lg md:pb-10">
           {prediction}
         </p>
       ) }
