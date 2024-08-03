@@ -3,14 +3,21 @@ import TarotCard from "./TarotCard";
 import Button from "./Button";
 import Input from "./Input";
 import CardBack from "./CardBack";
+import Typewriter from "./Typewriter";
 import { useState } from "react";
 import { getCards } from "../lib/Cards";
 import { getPrediction } from "../lib/ai-tarot";
+import { useTypewriter } from 'react-simple-typewriter'
+
 
 const TarotCardContainer = () => {
   const [cards, setCards] = useState([]);
-  const [prediction, setPrediction] = useState(null);
+  const [prediction, setPrediction] = useState([]);
   const [isLoading, setIsLoading] = useState(false)
+  // const [text] = useTypewriter({
+  //   words:prediction.split(),
+  //   typeSpeed: 40
+  // })
 
   const handleOnSubmit = async (formData) => {
     
@@ -53,11 +60,7 @@ const TarotCardContainer = () => {
       )
     }
 
-      {prediction&&!isLoading && (
-        <p className="text-fuchsia-500  text-pretty text-center mx-4 mt-2 pb-2 md:mx-60 md:mt-4 md:text-lg md:pb-10">
-          {prediction}
-        </p>
-      ) }
+      {prediction&&!isLoading && <Typewriter text={prediction}></Typewriter>}
     </>
   );
 };
