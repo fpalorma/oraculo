@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:container": "WATCHPACK_POLLING=true next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -16,6 +17,7 @@
     "openai": "^4.52.7",
     "react": "^18",
     "react-dom": "^18",
+    "react-transition-group": "^4.4.5",
     "zod": "^3.23.8"
   },
   "devDependencies": {
