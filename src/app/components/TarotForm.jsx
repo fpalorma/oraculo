@@ -6,7 +6,7 @@ import { useState } from "react";
 import { getCards, CARDS_BACK } from "../lib/Cards";
 import { getPrediction } from "../lib/ai-tarot";
 
-const TarotCardContainer = () => {
+const TarotForm = () => {
   const [cards, setCards] = useState([]);
   const [prediction, setPrediction] = useState(null);
   const [inputValue, setInputValue] = useState('');
@@ -25,10 +25,6 @@ const TarotCardContainer = () => {
     setCards(CARDS_BACK);
   }
 
-  const handleOnChange = (event) => {
-    setInputValue(event.target.value)
-  }
-
   return (
     <>
       <div>
@@ -36,7 +32,7 @@ const TarotCardContainer = () => {
           className="flex flex-col gap-y-1 md:flex-row md:justify-center md:gap-x-2 items-center mb-4"
           action={handleOnSubmit}
         >
-          <Input value={inputValue} onChange={handleOnChange} name="userMessage" />
+          <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} name="userMessage" />
           <Button disabled={!inputValue.trim()} texto={"Consultar al oráculo"} handleOnClick={onClick} />
         </form>
         {
@@ -46,8 +42,8 @@ const TarotCardContainer = () => {
             </p>
           )
         }
-      </div>+
-      <div className="flex  justify-center gap-x-4 mx-2 md:gap-x-12">
+      </div>
+      <div className="flex flex-row flex-nowrap md:justify-evenly justify-between gap-x-4 mx-2 md:gap-x-12">
         {cards.map((card) => <TarotCard key={card.id} card={card} />)}
       </div>
       {prediction && (
@@ -59,4 +55,4 @@ const TarotCardContainer = () => {
   );
 };
 
-export default TarotCardContainer;
+export default TarotForm;

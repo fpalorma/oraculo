@@ -8,7 +8,7 @@ const TarotCard = ({ card }) => {
 
   useEffect(() => {
     setAnimate('animate__animated animate__flipInY')
-  }, [])
+  }, []);
 
   return (
     <>
