@@ -9,6 +9,7 @@ import { getPrediction } from "../lib/ai-tarot";
 const TarotCardContainer = () => {
   const [cards, setCards] = useState([]);
   const [prediction, setPrediction] = useState(null);
+  const [inputValue, setInputValue] = useState('');
 
   const handleOnSubmit = async (formData) => {
     const message = formData.get("userMessage");
@@ -24,6 +25,10 @@ const TarotCardContainer = () => {
     setCards(CARDS_BACK);
   }
 
+  const handleOnChange = (event) => {
+    setInputValue(event.target.value)
+  }
+
   return (
     <>
       <div>
@@ -31,13 +36,13 @@ const TarotCardContainer = () => {
           className="flex flex-col gap-y-1 md:flex-row md:justify-center md:gap-x-2 items-center mb-4"
           action={handleOnSubmit}
         >
-          <Input name="userMessage" />
-          <Button texto={"Consultar al oráculo"} handleOnClick={onClick} />
+          <Input value={inputValue} onChange={handleOnChange} name="userMessage" />
+          <Button disabled={!inputValue.trim()} texto={"Consultar al oráculo"} handleOnClick={onClick} />
         </form>
         {
           !prediction && (
             <p className="text-white text-center">
-              Haz click en el botón para conocer tu suerte
+              Este Oráculo funciona eligiendo 3 arcanos mayores del Tarot Raider y en base a esas cartas, la IA realizará una predicción. <br />Por favor, escribe tu consulta y a continuación haz click en el botón
             </p>
           )
         }
