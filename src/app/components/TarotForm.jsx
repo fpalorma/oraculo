@@ -38,7 +38,7 @@ const TarotForm = () => {
         {
           !prediction && (
             <p className="text-white text-center">
-              Este Oráculo funciona eligiendo 3 arcanos mayores del Tarot Raider y en base a esas cartas, la IA realizará una predicción. <br />Por favor, escribe tu consulta y a continuación haz click en el botón
+              Este Oráculo funciona eligiendo 3 arcanos mayores del Tarot Rider y en base a esas cartas, la IA realizará una predicción. <br />Por favor, escribe tu consulta y a continuación haz click en el botón
             </p>
           )
         }
