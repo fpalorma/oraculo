@@ -12,12 +12,21 @@ const TarotForm = () => {
   const [inputValue, setInputValue] = useState('');
 
   const handleOnSubmit = async (formData) => {
-    const message = formData.get("userMessage");
-    const tarotCards = getCards();
-    const cardsNames = tarotCards.map((card) => card.name);
-    const response = await getPrediction(message, cardsNames);
-    setPrediction(response.message);
-    setCards(response.isOk ? tarotCards : []);
+    try {
+      const message = formData.get("userMessage");
+      const tarotCards = getCards();
+      const cardsNames = tarotCards.map((card) => card.name);
+      const response = await getPrediction(message, cardsNames);
+      if (!response?.message) {
+        throw new Error("No se pudo obtener una predicción. Intenta nuevamente.");
+      }
+      setPrediction(response.message);
+      setCards(response.isOk ? tarotCards : []);
+    } catch (error) {
+      setPrediction(error.message || "Ocurrió un error inesperado.");
+      setCards([]);
+    }
+
   };
 
   const onClick = () => {
