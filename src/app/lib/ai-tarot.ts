@@ -34,7 +34,7 @@ export async function getPrediction(userMessage: string, tarotCards: string[]) {
 
   
     const { text } = await generateText({
-      model: google('models/gemini-1.5-pro-latest', { safetySettings: [
+      model: google('models/gemini-1.5-flash-latest', { safetySettings: [
         { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_NONE' },
         { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_NONE' },
         { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_NONE' },
